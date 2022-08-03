@@ -7,8 +7,6 @@ services:
       - '8086:8086'
     volumes:
       - influxdb-storage:/var/lib/influxdb
-    env_file:
-      - default.env
     restart: always
 
 ### Uncomment lines below to enable Chronograf containter
