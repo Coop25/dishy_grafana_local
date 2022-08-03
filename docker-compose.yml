@@ -31,8 +31,6 @@ services:
       - ./grafana-provisioning/:/etc/grafana/provisioning
     depends_on:
       - influxdb
-    env_file:
-      - default.env
     restart: always
 
   grpc:
@@ -40,8 +38,6 @@ services:
     command: "dish_grpc_influx.py -t 1 -a -v status obstruction_detail alert_detail ping_drop ping_run_length ping_latency ping_loaded_latency usage bulk_history"
     depends_on:
       - influxdb
-    env_file:
-      - default.env
     tty: true
     restart: always
 
@@ -51,8 +47,6 @@ services:
       - ./netstats-provisioning:/etc/telegraf
     depends_on:
       - influxdb
-    env_file:
-      - default.env
     restart: always
     privileged: true
 
